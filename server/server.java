@@ -6,16 +6,23 @@ import java.io.IOException;
 
 public class FTPServer{
 
+    int port;
+    ServerSocket serverSocket;
+
     public static void main(String[] args){
 
-        FTPServer server = new FTPServer();
+        FTPServer server = new FTPServer(20);
         server.run();
 
 
     }
 
-    int port = 20;
-    ServerSocket serverSocket = new ServerSocket(port);
+    public FTPServer(int portnum){
+        port = portnum;
+        serverSocket = new ServerSocket(port);
+    }
+
+
 
     void run(){
         while(true){
